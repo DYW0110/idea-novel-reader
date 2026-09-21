@@ -1,0 +1,85 @@
+<idea-plugin>
+    <id>cn.microvideo.novel.plugin.idea-novel-plugin</id>
+    <name>Novel Reader</name>
+    <version>1.0.0</version>
+    <vendor email="support@microvideo.cn" url="https://www.microvideo.cn">Microvideo</vendor>
+
+    <description><![CDATA[
+        A simple novel reader embedded in IntelliJ IDEA. Read local TXT/EPUB novels
+        inside a ToolWindow with customizable font, color and line spacing.
+    ]]></description>
+
+    <change-notes><![CDATA[
+        Initial release: local TXT reading, catalog navigation, progress persistence,
+        custom font/color/line spacing and boss-key camouflage.
+    ]]></change-notes>
+
+    <idea-version since-build="241"/>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow
+                id="Novel Reader"
+                anchor="right"
+                secondary="false"
+                factoryClass="cn.microvideo.novel.plugin.NovelToolWindowFactory"
+                icon="/icons/novel.svg"/>
+
+        <applicationService
+                serviceImplementation="cn.microvideo.novel.plugin.state.NovelConfigState"/>
+
+        <applicationConfigurable
+                id="novel.reader.settings"
+                displayName="Novel Reader"
+                instance="cn.microvideo.novel.plugin.config.NovelConfigurable"/>
+    </extensions>
+
+    <actions>
+        <action id="NovelReader.ToggleToolbar"
+                class="cn.microvideo.novel.plugin.action.ToggleToolbarAction"
+                text="Toggle Novel Toolbar"
+                description="Show or hide novel reader toolbar">
+            <keyboard-shortcut keymap="$default" first-keystroke="F8"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="control alt T"/>
+        </action>
+
+        <action id="NovelReader.ToggleCatalog"
+                class="cn.microvideo.novel.plugin.action.ToggleCatalogAction"
+                text="Toggle Novel Catalog"
+                description="Show or hide chapter catalog drawer">
+            <keyboard-shortcut keymap="$default" first-keystroke="F7"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="control alt L"/>
+        </action>
+
+        <action id="NovelReader.OpenBook"
+                class="cn.microvideo.novel.plugin.action.OpenBookAction"
+                text="Open Novel Book"
+                description="Open local novel file">
+            <keyboard-shortcut keymap="$default" first-keystroke="control alt O"/>
+        </action>
+
+        <action id="NovelReader.NextPage"
+                class="cn.microvideo.novel.plugin.action.NextPageAction"
+                text="Next Page"
+                description="Turn to the next page / chapter">
+            <keyboard-shortcut keymap="$default" first-keystroke="control alt DOWN"/>
+        </action>
+
+        <action id="NovelReader.PreviousPage"
+                class="cn.microvideo.novel.plugin.action.PreviousPageAction"
+                text="Previous Page"
+                description="Turn to the previous page / chapter">
+            <keyboard-shortcut keymap="$default" first-keystroke="control alt UP"/>
+        </action>
+
+        <action id="NovelReader.BossKey"
+                class="cn.microvideo.novel.plugin.action.BossKeyAction"
+                text="Boss Key"
+                description="Toggle camouflage mode">
+            <keyboard-shortcut keymap="$default" first-keystroke="control alt B"/>
+        </action>
+    </actions>
+
+</idea-plugin>

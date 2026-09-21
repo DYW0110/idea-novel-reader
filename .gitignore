@@ -1,0 +1,14 @@
+*.iml
+.gradle/
+build/
+out/
+.idea/libraries/
+.idea/modules.xml
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/shelf/
+.idea/sonarlint/
+.idea/assetWizardSettings.xml
+.idea/httpRequests/
+.DS_Store
+*.log
