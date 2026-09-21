@@ -52,8 +52,8 @@
 ### 方式二：本地源码编译
 ```bash
 # 克隆仓库
-git clone https://github.com/<your-username>/idea-novel-plugin.git
-cd idea-novel-plugin
+git clone https://github.com/DYW0110/idea-novel-reader.git
+cd idea-novel-reader
 
 # 使用 Gradle 编译打包 (需要 JDK 17+)
 ./gradlew buildPlugin
@@ -67,6 +67,13 @@ cd idea-novel-plugin
 - **语言**：Kotlin 1.9.23 / JDK 17
 - **IDE 兼容范围**：IntelliJ IDEA 2024.1 (Build 241) 及后续所有更新版本（包括 2024.x, 2025.x, 2026.x+）
 - **UI 架构**：IntelliJ Platform SDK + Java Swing / AWT
+
+---
+
+## 💬 交流与反馈
+
+- **GitHub Issues**：欢迎提交 Bug 反馈或功能建议
+- **作者微信**：`WEN72510825`（添加请备注：`IDEA小说插件`）
 
 ---
 
